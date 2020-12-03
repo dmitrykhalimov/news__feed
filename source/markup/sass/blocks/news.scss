@@ -1,0 +1,159 @@
+.news__container {
+  //@include outline;
+  margin: 0 auto;
+  width: 800px;
+  font-family: "Rubik", "Arial", sans-serif;
+}
+
+.news__button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: none;
+  background-color: $blue;
+  color: $white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+
+  border-radius: 8px;
+
+}
+
+.news__button span:first-child {
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 45px;
+  margin-right: 100px;
+}
+
+.news__button span:not(:last-child):not(:first-child) {
+  align-self: center;
+  padding-top: 0;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 35px;
+  //@include outline;
+}
+
+.news__button span:last-child {
+  position: absolute;
+  top: 50%;
+  right: 60px;
+}
+
+.news__button span:last-child::after,
+.news__button span:last-child::before {
+  position: absolute;
+  top: 0;
+
+  content: "";
+
+  display: block;
+
+  width: 25px;
+  height: 5px;
+
+  background-color: $white;
+}
+
+.news__button span:last-child::after {
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.news__button span:last-child::before {
+  left: 14px;
+  transform: rotate(-45deg);
+}
+
+.news__item {
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.news__button--opened {
+  margin-bottom: 20px;
+}
+
+.news__button--opened span:last-child::before {
+  transform: rotate(45deg);
+  transition: 0.2s ease-out;
+}
+
+.news__button--opened span:last-child::after {
+  transform: rotate(-45deg);
+  transition: 0.2s ease-out;
+}
+
+.news__feed {
+  // @include outline(orange);
+}
+
+.news__feed h3 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 28px;
+  color: #0085ff;
+  margin-bottom: 10px;
+}
+
+.news__details {
+  display: grid;
+  outline: 1px solid $gray;
+  grid-template-areas: "name status"
+    "time unset"
+    "expand expand"
+    "text text";
+  padding: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px 40px 40px 1fr;
+  margin-bottom: 10px;
+}
+
+.news__details b,
+.news__details span,
+.news__details button,
+.news__details time {
+  margin: 0;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.news__details b {
+  grid-area: name;
+  font-weight: bold;
+}
+
+.news__details span {
+  grid-area: status;
+  font-weight: bold;
+  text-align: right;
+}
+
+.news__details time {
+  grid-area: time;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.news__details button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  grid-area: expand;
+  font-weight: bold;
+
+  background-color: $blue;
+  width: 165px;
+  height: 35px;
+  color: $white;
+  border-radius: 12px;
+  border: none;
+}
+
+.news__text {
+  grid-area: text;
+}

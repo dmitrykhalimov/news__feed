@@ -2,15 +2,73 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Шаблон сайта: Gulp + Sass</title>
+    <title>Шаблон кнопки</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
   </head>
+  <style>
+    /* для базовой стилизации контейнера использован тег style, чтобы не подмешивать лишние стили в результирующие css файл*/
+    .news {
+      width: 1200px;
+      min-height: 500px;
+      margin: 0 auto;
+      margin-top: 50px;
+      outline: 4px solid green;
+    }
+
+    .news__container {
+      margin: 0 auto;
+    }
+  </style>
   <body>
-    <main class="page-main">
-      <section class="first">
-        <h1>Hello, template!</h1>
+    <div class="news">
+      <h2 class="visually-hidden">Лента новостей</h2>
+      <section class="news__container">
+        <button class="news__button news__button--opened">
+          <span>Новости</span>
+          <span>14 / 14 непрочитано</span>
+          <span></span>
+        </button>
+        <section class="news__feed">
+          <article class="news__item">
+            <h3>В деревне Бабкино небывалый урожай капусты</h3>
+            <div class="news__details">
+              <b>Валерий Петриченко</b>
+              <time datetime="2001-05-15 19:00">15 мая</time>
+              <span>Не прочитано</span>
+              <button>Читать далее</button>
+            </div>
+          </article>
+          <article class="news__item">
+            <h3>Спортивная битва переросла в массовую драку</h3>
+            <div class="news__details">
+              <b>Алина Ткачева</b>
+              <time datetime="2001-05-15 19:00">15 мая</time>
+              <span>Не прочитано</span>
+              <button>Читать далее</button>
+              <div class="news__text">
+                <p>Небывалым скандалом окончилась футбольная игра между футбольными клубами “Факел” и “Пламя”. На 85 минуте в ворота гостей был назначен пенальти.</p>
+                <p>Полузащитник гостей приготовился ударить по мячу, но озорной пес Тузик схватил его за бутсу, снял с ноги и был таков.</p>
+              </div>
+            </div>
+          </article>
+          <article class="news__item">
+            <h3>В деревне Бабкино небывалый урожай капусты</h3>
+            <div class="news__details">
+              <b>Алина Ткачева</b>
+              <time datetime="2001-05-15 19:00">15 мая</time>
+              <span>Не прочитано</span>
+              <button>Читать далее</button>
+            </div>
+          </article>
+        </section>
       </section>
-    </main>
+    </div>
+    <script>
+      var button = document.querySelector('button');
+      button.addEventListener('click', () => {
+        button.classList.add('news__button--opened')
+      })
+    </script>
   </body>
 </html>
