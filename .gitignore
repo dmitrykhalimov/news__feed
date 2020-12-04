@@ -7,8 +7,6 @@
 *.psd
 *.bak
 *.sublime*
-build/
-source/temp/
 css/
 temp/
 node_modules/

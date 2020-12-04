@@ -1,5 +1,6 @@
-import {sayHi} from "../js/view/feed";
+import NewsFeed from "../js/presenter/feed";
 
-console.log('Я работаю!');
+const newsBlock = document.querySelector('#news');
+const newsFeedPresenter = new NewsFeed(newsBlock);
 
-sayHi();
+newsFeedPresenter.init();
