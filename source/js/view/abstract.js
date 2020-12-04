@@ -3,13 +3,8 @@ import {createElement} from "../utils/render";
 export default class Abstract {
   constructor() {
     this._element = null;
-    this._createTemplate = () => {
-      return `<button class="news__button news__button--opened">
-      <span>Новости</span>
-      <span>14 / 14 непрочитано</span>
-      <span></span>
-    </button>`;
-    };
+    this._createTemplate = null;
+    this._callback = null;
   }
 
   getTemplate() {
