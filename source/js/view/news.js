@@ -1,14 +1,7 @@
 import {createElement} from "../utils/render";
 
 const createButton = () => {
-  return `<section class="news__container">
-  <h2 class="visually-hidden">Лента новостей</h2>
-  <button class="news__button news__button--opened">
-    <span>Новости</span>
-    <span>14 / 14 непрочитано</span>
-    <span></span>
-  </button>
-  <section class="news__feed">
+  return `<section class="news__feed">
     <article class="news__item">
       <h3>В деревне Бабкино небывалый урожай капусты</h3>
       <div class="news__details">
@@ -40,17 +33,12 @@ const createButton = () => {
         <button>Читать далее</button>
       </div>
     </article>
-  </section>
-</section>`;
+  </section>`;
 };
 
-export default class Button {
+export default class News {
   constructor() {
     this._element = null;
-  }
-
-  test() {
-    console.log('бантик');
   }
 
   getTemplate() {

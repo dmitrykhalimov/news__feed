@@ -1,10 +1,14 @@
 import {createElement} from "../utils/render";
 
 const createTemplate = () => {
-  return `<section class="news__container"></section>`;
+  return `<button class="news__button news__button--opened">
+  <span>Новости</span>
+  <span>14 / 14 непрочитано</span>
+  <span></span>
+</button>`;
 };
 
-export default class NewsContainer {
+export default class Button {
   constructor() {
     this._element = null;
   }
