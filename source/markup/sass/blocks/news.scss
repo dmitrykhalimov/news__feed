@@ -1,7 +1,8 @@
 .news__container {
-  //@include outline;
   margin: 0 auto;
+
   width: 800px;
+
   font-family: "Rubik", "Arial", sans-serif;
 }
 
@@ -12,34 +13,34 @@
   border: none;
   background-color: $blue;
   color: $white;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 40px;
 
   border-radius: 8px;
-
 }
 
 .news__button span:first-child {
   font-weight: 700;
-  font-size: 35px;
-  line-height: 45px;
-  margin-right: 100px;
+  font-size: 28px;
+  line-height: 35px;
+  margin-right: 150px;
+  // @include outline;
 }
 
 .news__button span:not(:last-child):not(:first-child) {
   align-self: center;
   padding-top: 0;
   font-weight: 400;
-  font-size: 25px;
-  line-height: 35px;
-  //@include outline;
+  font-size: 20px;
+  line-height: 23px;
+  // @include outline;
 }
 
 .news__button span:last-child {
   position: absolute;
-  top: 50%;
-  right: 60px;
+  top: 48%;
+  right: 50px;
 }
 
 .news__button span:last-child::after,
@@ -51,7 +52,7 @@
 
   display: block;
 
-  width: 25px;
+  width: 18px;
   height: 5px;
 
   background-color: $white;
@@ -60,16 +61,18 @@
 .news__button span:last-child::after {
   left: 0;
   transform: rotate(45deg);
+  transition: 0.1s ease-out;
 }
 
 .news__button span:last-child::before {
-  left: 14px;
+  left: 9px;
   transform: rotate(-45deg);
+  transition: 0.1s ease-out;
 }
 
 .news__item {
   box-sizing: border-box;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 .news__button--opened {
@@ -78,16 +81,22 @@
 
 .news__button--opened span:last-child::before {
   transform: rotate(45deg);
-  transition: 0.2s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .news__button--opened span:last-child::after {
   transform: rotate(-45deg);
-  transition: 0.2s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .news__feed {
   // @include outline(orange);
+  display: block;
+  transition: visibility 2s ease-out;
+}
+
+.news__feed--closed {
+  display: none;
 }
 
 .news__feed h3 {
@@ -106,9 +115,12 @@
     "time unset"
     "expand expand"
     "text text";
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 0;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30px 40px 40px 1fr;
+  grid-template-rows: 25px 30px 50px 1fr;
   margin-bottom: 10px;
 }
 
@@ -117,8 +129,14 @@
 .news__details button,
 .news__details time {
   margin: 0;
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.news__details time {
+  margin: 0;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 .news__details b {
@@ -156,4 +174,10 @@
 
 .news__text {
   grid-area: text;
+}
+
+.news__text p {
+  margin-top: 0;
+  font-size: 15px;
+  line-height: 18px;
 }

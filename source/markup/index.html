@@ -23,15 +23,14 @@
   <body>
     <div class="news" id="news">
       <section class="news__container">
-        <h2 class="visually-hidden">Лента новостей</h2>
-        <button class="news__button news__button--opened">
+        <button class="news__button">
           <span>Новости</span>
           <span>14 / 14 непрочитано</span>
           <span></span>
         </button>
-        <section class="news__feed">
+        <section class="news__feed news__feed--closed">
           <article class="news__item">
-            <h3>В деревне Бабкино небывалый урожай капусты</h3>
+            <h3>В деревне Бабкино вырос небывалый урожай капусты</h3>
             <div class="news__details">
               <b>Валерий Петриченко</b>
               <time datetime="2001-05-15 19:00">15 мая</time>
@@ -53,7 +52,7 @@
             </div>
           </article>
           <article class="news__item">
-            <h3>В деревне Бабкино небывалый урожай капусты</h3>
+            <h3>Человек, очень похожий на Кевина Костнера поймал в Ладожском озере 25 килограммового линя</h3>
             <div class="news__details">
               <b>Алина Ткачева</b>
               <time datetime="2001-05-15 19:00">15 мая</time>
@@ -67,7 +66,15 @@
     <script>
       var button = document.querySelector('button');
       button.addEventListener('click', () => {
-        button.classList.add('news__button--opened')
+        if (button.classList.contains('news__button--opened')) {
+          button.classList.remove ('news__button--opened')
+          document.querySelector('.news__feed').classList.add('news__feed--closed')
+          document.querySelector('.news__feed').classList.remove('news__feed--opened')
+        } else {
+          button.classList.add('news__button--opened')
+          document.querySelector('.news__feed').classList.remove('news__feed--closed')
+          document.querySelector('.news__feed').classList.add('news__feed--opened')
+        }
       })
     </script>
   </body>
