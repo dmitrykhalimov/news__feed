@@ -34,6 +34,7 @@
     "markup-build": "gulp build",
     "markup-start": "gulp start",
     "js-build": "webpack",
+    "js-build-prod": "node copycss.js && webpack --config webpack.prod.js",
     "js-start": "webpack-dev-server --open",
     "sprite": "gulp sprite"
   },
