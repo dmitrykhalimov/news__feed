@@ -5,10 +5,6 @@ const createDescription = (text) => {
     acc += `<p>${textItem}</p>`;
     return acc;
   }, ``);
-
-  // return `<p>Небывалым скандалом окончилась футбольная игра между футбольными клубами “Факел” и “Пламя”. На 85 минуте в ворота гостей был назначен пенальти.</p>
-  // <p>Полузащитник гостей приготовился ударить по мячу, но озорной пес Тузик схватил его за бутсу, снял с ноги и был таков.</p>`;
-
 };
 
 const createTemplate = (heading, name, time, text) => {
@@ -19,7 +15,7 @@ const createTemplate = (heading, name, time, text) => {
         <time datetime="2001-05-15 19:00">${time}</time>
         <span>Не прочитано</span>
         <button>Читать далее</button>
-        <div class="news__text">
+        <div class="news__text visually-hidden">
           ${createDescription(text)}
         </div>
       </div>
@@ -35,6 +31,12 @@ export default class NewsItem extends Abstract {
     this._time = newsItem.date;
     this._isRead = newsItem.isRead;
     this._text = newsItem.text;
+
+    this._newsTextContainer = this.getElement().querySelector(`.news__text`);
+
+    this._buttonClickHandler = this._buttonClickHandler.bind(this);
+
+    this.getElement().querySelector(`button`).addEventListener(`click`, this._buttonClickHandler);
   }
 
   getTemplate() {
@@ -46,6 +48,10 @@ export default class NewsItem extends Abstract {
   }
 
   _buttonClickHandler() {
-
+    if (this._newsTextContainer.classList.contains(`visually-hidden`)) {
+      this._newsTextContainer.classList.remove(`visually-hidden`)
+    } else {
+      this._newsTextContainer.classList.add(`visually-hidden`)
+    }
   }
 }

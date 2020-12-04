@@ -7,6 +7,7 @@ import {newsItems} from "../mocks";
 
 export default class Feed {
   constructor(newsBlock) {
+    this._newsItems = [];
     this._newsBlock = newsBlock;
     this._newsContinerComponent = new Container();
     this._buttonComponent = new Button(this._handleNewsButtonClick);
@@ -25,21 +26,18 @@ export default class Feed {
   }
 
   _renderNews() {
-    newsItems.forEach((newsItemData) => {
+    this._newsItems.forEach((newsItemData) => {
       const newsItem = new NewsItem(newsItemData);
       render(this._newsFeedComponent.getElement(), newsItem.getElement(), RenderPosition.BEFOREEND);
     });
 
-    const test = new NewsItem(newsItems[0]);
-    render(this._newsFeedComponent.getElement(), test.getElement(), RenderPosition.BEFOREEND);
-
     render(this._newsContinerComponent.getElement(), this._newsFeedComponent.getElement(), RenderPosition.BEFOREEND);
   }
 
-  init() {
+  init(news) {
+    this._newsItems = news;
     this._renderContainer();
     this._renderButton();
-    this._renderNews();
   }
 
   _handleNewsButtonClick() {
