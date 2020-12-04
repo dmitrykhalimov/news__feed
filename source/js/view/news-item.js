@@ -31,14 +31,13 @@ export default class NewsItem extends Abstract {
     this._time = newsItem.date;
     this._isRead = newsItem.isRead;
     this._text = newsItem.text;
+    this._callback = {};
 
     this._newsTextContainer = this.getElement().querySelector(`.news__text`);
     this._buttonExpand = this.getElement().querySelector(`button`);
     this._readStatus = this.getElement().querySelector(`span`);
 
     this._buttonClickHandler = this._buttonClickHandler.bind(this);
-
-    this._buttonExpand.addEventListener(`click`, this._buttonClickHandler);
   }
 
   getTemplate() {
@@ -50,6 +49,11 @@ export default class NewsItem extends Abstract {
         this._isRead);
   }
 
+  setClickHandler(callback) {
+    this._callback.click = callback;
+    this._buttonExpand.addEventListener(`click`, this._buttonClickHandler);
+  }
+
   _buttonClickHandler() {
     if (this._newsTextContainer.classList.contains(`visually-hidden`)) {
       this._newsTextContainer.classList.remove(`visually-hidden`);
@@ -59,6 +63,7 @@ export default class NewsItem extends Abstract {
         // это эмуляция смены статуса, т.к. в задании указано не хранить статус. В боевом проекте нужно было бы обновлять модель и перерисовывать компонент.
         this._isRead = true;
         this._readStatus.textContent = `Прочитано`;
+        this._callback.click();
       }
 
     } else {

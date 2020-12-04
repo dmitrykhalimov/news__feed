@@ -3,40 +3,48 @@ import Button from "../view/button";
 import Container from "../view/news-container";
 import NewsFeed from "../view/news-feed";
 import NewsItem from "../view/news-item";
+import {howManyReaded} from "../utils";
 
 export default class Feed {
-  constructor(newsBlock) {
-    this._newsItems = [];
+  constructor(newsBlock, news) {
+    this._newsItems = news;
+
     this._isRendered = false;
+
+    this._allQuantity = news.length;
+    this._notReadQuantity = howManyReaded(news);
+
     this._newsBlock = newsBlock;
-    this._newsContinerComponent = new Container();
-    this._buttonComponent = new Button(this._handleNewsButtonClick);
+
+    this._newsContainerComponent = new Container();
+    this._buttonComponent = new Button(news.length, howManyReaded(news));
     this._newsFeedComponent = new NewsFeed();
 
     this._handleNewsButtonClick = this._handleNewsButtonClick.bind(this);
+    this._handleReadNewsClick = this._handleReadNewsClick.bind(this);
   }
 
   _renderContainer() {
-    render(this._newsBlock, this._newsContinerComponent.getElement(), RenderPosition.AFTERBEGIN);
+    render(this._newsBlock, this._newsContainerComponent.getElement(), RenderPosition.AFTERBEGIN);
   }
 
   _renderButton() {
-    render(this._newsContinerComponent.getElement(), this._buttonComponent.getElement(), RenderPosition.AFTERBEGIN);
+    render(this._newsContainerComponent.getElement(), this._buttonComponent.getElement(), RenderPosition.AFTERBEGIN);
     this._buttonComponent.setClickHandler(this._handleNewsButtonClick);
   }
 
   _renderNews() {
     this._newsItems.forEach((newsItemData) => {
       const newsItem = new NewsItem(newsItemData);
+      newsItem.setClickHandler(this._handleReadNewsClick);
       render(this._newsFeedComponent.getElement(), newsItem.getElement(), RenderPosition.BEFOREEND);
     });
 
-    render(this._newsContinerComponent.getElement(), this._newsFeedComponent.getElement(), RenderPosition.BEFOREEND);
+
+    render(this._newsContainerComponent.getElement(), this._newsFeedComponent.getElement(), RenderPosition.BEFOREEND);
   }
 
-  init(news) {
-    this._newsItems = news;
-
+  init() {
     this._renderContainer();
     this._renderButton();
   }
@@ -48,6 +56,12 @@ export default class Feed {
     } else {
       this._newsFeedComponent.toggleNewsFeed();
     }
+  }
+
+  _handleReadNewsClick() {
+    // также заглушка, в "боевом" режиме использовалась бы перерисовка кнопки, после изменения модели
+    this._notReadQuantity--;
+    this._buttonComponent.changeReaded(this._notReadQuantity);
   }
 }
 

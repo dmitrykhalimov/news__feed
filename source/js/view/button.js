@@ -1,28 +1,36 @@
 import Abstract from "./abstract";
 
-const createTemplate = () => {
+const createTemplate = (allQuantity, notReadQuantity) => {
   return `<button class="news__button">
   <span>Новости</span>
-  <span>14 / 14 непрочитано</span>
+  <span>${allQuantity} / ${notReadQuantity} непрочитано</span>
   <span></span>
 </button>`;
 };
 
 export default class Button extends Abstract {
-  constructor() {
+  constructor(allQuantity, notReadQuantity) {
     super();
 
     this._element = null;
-    this._createTemplate = createTemplate();
+
+    this._allQuantity = allQuantity;
+
     this._callback = {};
     this._clickHandler = this._clickHandler.bind(this);
 
+    this._createTemplate = createTemplate(allQuantity, notReadQuantity);
     // this._buttonShow = this.getElement().querySelector(`button`);
   }
 
   setClickHandler(callback) {
     this._callback.click = callback;
     this.getElement().addEventListener(`click`, this._clickHandler);
+  }
+
+  changeReaded(notReadQuantity) {
+    this._qunatity = this.getElement().querySelector(`span:not(:first-child)`);
+    this._qunatity.textContent = `${this._allQuantity} / ${notReadQuantity} непрочитано`;
   }
 
   _clickHandler(evt) {
