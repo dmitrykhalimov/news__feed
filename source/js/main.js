@@ -12,33 +12,37 @@ export default class NewsWidget {
 
   startFromServer() {
     fetch(this._source)
-    .then((response) => {
-      if (response.status !== 200) {
-        throw new Error(`Ошибка загрузки данных с сервера: ` +
-          response.status);
-      }
-      response.json()
-        .then((news) => {
-          const newsFeedPresenter = new NewsFeed(this._newsBlock, news);
-          newsFeedPresenter.init();
-        });
-    })
-    .catch((err) => {
-      throw new Error(`Произошла неизвестная ошибка, код ошибки:` + err);
-    });
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(`Ошибка загрузки данных с сервера: ` +
+            response.status);
+        }
+        response.json()
+          .then((news) => {
+            const newsFeedPresenter = new NewsFeed(this._newsBlock, news);
+            newsFeedPresenter.init();
+          });
+      })
+      .catch((err) => {
+        throw new Error(`Произошла неизвестная ошибка, код ошибки:` + err);
+      });
   }
 
   startWithMocks() {
-    console.log(newsItems);
     const newsFeedPresenter = new NewsFeed(this._newsBlock, newsItems);
     newsFeedPresenter.init();
   }
 
   init() {
+    if (!this._newsBlock) {
+      throw new Error(`Выбран несуществующий контейнер`);
+    }
     if (this._type === `server`) {
       this.startFromServer();
-    } else {
+    } else if (this._type === `mocks`) {
       this.startWithMocks();
+    } else {
+      throw new Error(`Некорректно указан тип работы`);
     }
   }
 }

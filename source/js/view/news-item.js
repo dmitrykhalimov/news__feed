@@ -1,4 +1,5 @@
 import Abstract from "./abstract";
+import {translateDateFromServer} from "../utils";
 
 const createDescription = (text) => {
   return text.reduce((acc, textItem) => {
@@ -12,7 +13,7 @@ const createTemplate = (heading, name, time, text, isRead) => {
       <h3>${heading}</h3>
       <div class="news__details">
         <b>${name}</b>
-        <time datetime="2001-05-15 19:00">${time}</time>
+        <time datetime="2001-05-15 19:00">${translateDateFromServer(time)}</time>
         <span>${!isRead ? `Не прочитано` : `Прочитано`}</span>
         <button>Читать далее</button>
         <div class="news__text visually-hidden">
