@@ -1,4 +1,4 @@
-import {createElement} from "../utils/render";
+import Abstract from "./abstract";
 
 const createButton = () => {
   return `<section class="news__feed">
@@ -36,20 +36,10 @@ const createButton = () => {
   </section>`;
 };
 
-export default class News {
+export default class News extends Abstract {
   constructor() {
+    super();
     this._element = null;
-  }
-
-  getTemplate() {
-    return createButton();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
+    this._createTemplate = createButton();
   }
 }
