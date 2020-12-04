@@ -3,11 +3,11 @@ import Button from "../view/button";
 import Container from "../view/news-container";
 import NewsFeed from "../view/news-feed";
 import NewsItem from "../view/news-item";
-import {newsItems} from "../mocks";
 
 export default class Feed {
   constructor(newsBlock) {
     this._newsItems = [];
+    this._isRendered = false;
     this._newsBlock = newsBlock;
     this._newsContinerComponent = new Container();
     this._buttonComponent = new Button(this._handleNewsButtonClick);
@@ -36,12 +36,18 @@ export default class Feed {
 
   init(news) {
     this._newsItems = news;
+
     this._renderContainer();
     this._renderButton();
   }
 
   _handleNewsButtonClick() {
-    this._renderNews();
+    if (!this._isRendered) {
+      this._renderNews();
+      this._isRendered = true;
+    } else {
+      this._newsFeedComponent.toggleNewsFeed();
+    }
   }
 }
 
