@@ -1,6 +1,7 @@
 import Abstract from "./abstract";
 import {translateDateFromServer} from "../utils";
 
+const CLOSED__CLASS = `news__text--closed`;
 const createDescription = (text) => {
   return text.reduce((acc, textItem) => {
     acc += `<p>${textItem}</p>`;
@@ -16,7 +17,7 @@ const createTemplate = (heading, name, time, text, isRead) => {
         <time datetime="2001-05-15 19:00">${translateDateFromServer(time)}</time>
         <span>${!isRead ? `Не прочитано` : `Прочитано`}</span>
         <button>Читать далее</button>
-        <div class="news__text visually-hidden">
+        <div class="news__text news__text--closed">
           ${createDescription(text)}
         </div>
       </div>
@@ -56,8 +57,8 @@ export default class NewsItem extends Abstract {
   }
 
   _buttonClickHandler() {
-    if (this._newsTextContainer.classList.contains(`visually-hidden`)) {
-      this._newsTextContainer.classList.remove(`visually-hidden`);
+    if (this._newsTextContainer.classList.contains(CLOSED__CLASS)) {
+      this._newsTextContainer.classList.remove(CLOSED__CLASS);
       this._buttonExpand.textContent = `Свернуть`;
 
       if (!this._isRead) {
@@ -68,7 +69,7 @@ export default class NewsItem extends Abstract {
       }
 
     } else {
-      this._newsTextContainer.classList.add(`visually-hidden`);
+      this._newsTextContainer.classList.add(CLOSED__CLASS);
       this._buttonExpand.textContent = `Читать далее`;
     }
   }

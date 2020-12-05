@@ -1,5 +1,6 @@
 import Abstract from "./abstract";
 
+const CLOSED_CLASS = `news__feed--closed`;
 const createButton = () => {
   return `<section class="news__feed">
 
@@ -14,11 +15,10 @@ export default class NewsFeed extends Abstract {
 
   // если пользователь скрывает/раскрывает виджет
   toggleNewsFeed() {
-    // можно конечно удалять форму, и заново рендерить, но я посчитал это менее экономичным
-    if (this.getElement().classList.contains(`visually-hidden`)) {
-      this.getElement().classList.remove(`visually-hidden`);
+    if (this.getElement().classList.contains(CLOSED_CLASS)) {
+      this.getElement().classList.remove(CLOSED_CLASS);
     } else {
-      this.getElement().classList.add(`visually-hidden`);
+      this.getElement().classList.add(CLOSED_CLASS);
     }
   }
 }
