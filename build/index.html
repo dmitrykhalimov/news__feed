@@ -8,23 +8,28 @@
   </head>
   <style>
     /* для базовой стилизации контейнера использован тег style, чтобы не подмешивать лишние стили в результирующие css файл*/
-    .news-server {
-      width: 800px;
+    .news-server,
+    .news-mock {
+      width: 100%;
+      max-width: 800px;
       margin-left: 200px;
       margin-top: 50px;
       outline: 4px solid green;
-      padding-left: 50px;
-      padding-right: 50px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     .news-mock {
-      width: 800px;
-      margin-left: 200px;
-      margin-top: 50px;
-      margin-bottom: 50px;
       outline: 4px solid blue;
-      padding-left: 50px;
-      padding-right: 50px;
+    }
+
+    @media (max-width: 767px) {
+      .news-server,
+      .news-mock {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+      }
     }
   </style>
   <body>
@@ -44,6 +49,6 @@
           container: "news-mock",
           type: "mocks",
         });
-    </script>
+      </script>
   </body>
 </html>
