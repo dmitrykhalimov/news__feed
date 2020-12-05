@@ -8,14 +8,14 @@
   </head>
   <style>
     /* для базовой стилизации контейнера использован тег style, чтобы не подмешивать лишние стили в результирующие css файл*/
-    .news {
+    .news-server {
       width: 1200px;
       margin-left: 200px;
       margin-top: 50px;
       outline: 4px solid green;
     }
 
-    .news2 {
+    .news-mock {
       width: 1200px;
       margin-left: 200px;
       margin-top: 50px;
@@ -24,24 +24,22 @@
     }
   </style>
   <body>
-    <div class="news" id="news"></div>
-    <div class="news2" id="news2"></div>
+    <div class="news-server" id="news-server"></div>
+    <div class="news-mock" id="news-mock"></div>
 
     <script src="bundle.js"></script>
       <script>
         const newsWidgetServer = new NewsWidget({
-          container: "news",
+          container: "news-server",
           type: "server",
           source: "https://run.mocky.io/v3/f713c246-2a14-4520-8468-42de76929ed7"
         });
-        newsWidgetServer.init();
       </script>
       <script>
         const newsWidgetData = new NewsWidget({
-          container: "news2",
+          container: "news-mock",
           type: "mocks",
         });
-        newsWidgetData.init();
-      </script>
+    </script>
   </body>
 </html>

@@ -8,9 +8,28 @@ export default class NewsWidget {
     this._newsBlock = document.querySelector(`#${container}`);
     this._type = type;
     this._source = source;
+
+    this._init();
   }
 
-  startFromServer() {
+  _init() {
+    if (!this._newsBlock) {
+      throw new Error(`Выбран несуществующий контейнер`);
+    }
+
+    switch (this._type) {
+      case `server`:
+        this._startFromServer();
+        break;
+      case `mocks`:
+        this._startWithMocks(newsItems);
+        break;
+      default:
+        throw new Error(`Некорректно указан тип работы`);
+    }
+  }
+
+  _startFromServer() {
     fetch(this._source)
       .then((response) => {
         if (response.status !== 200) {
@@ -19,8 +38,7 @@ export default class NewsWidget {
         }
         response.json()
           .then((news) => {
-            const newsFeedPresenter = new NewsFeed(this._newsBlock, news);
-            newsFeedPresenter.init();
+            this._renderPresenter(news);
           });
       })
       .catch((err) => {
@@ -28,22 +46,13 @@ export default class NewsWidget {
       });
   }
 
-  startWithMocks() {
-    const newsFeedPresenter = new NewsFeed(this._newsBlock, newsItems);
-    newsFeedPresenter.init();
+  _startWithMocks(news) {
+    this._renderPresenter(news);
   }
 
-  init() {
-    if (!this._newsBlock) {
-      throw new Error(`Выбран несуществующий контейнер`);
-    }
-    if (this._type === `server`) {
-      this.startFromServer();
-    } else if (this._type === `mocks`) {
-      this.startWithMocks();
-    } else {
-      throw new Error(`Некорректно указан тип работы`);
-    }
+  _renderPresenter(news) {
+    const newsFeedPresenter = new NewsFeed(this._newsBlock, news);
+    newsFeedPresenter.init();
   }
 }
 
