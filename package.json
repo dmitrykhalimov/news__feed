@@ -29,14 +29,17 @@
   },
   "scripts": {
     "editorconfig": "editorconfig-cli",
+
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
     "test": "npm run editorconfig && npm run stylelint && eslint source/js/",
-    "markup-build": "gulp build",
+
     "markup-start": "gulp start",
-    "js-build": "webpack",
-    "js-build-prod": "node copycss.js && webpack --config webpack.prod.js",
+    "markup-build": "gulp build",
+    "sprite": "gulp sprite",
+
     "js-start": "webpack-dev-server --open",
-    "sprite": "gulp sprite"
+    "js-build": "node copycss.js && webpack",
+    "js-build-prod": "node copycss.js && webpack --config webpack.prod.js"
   },
   "browserslist": [
     "last 2 versions",
