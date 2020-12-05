@@ -229,6 +229,7 @@
   .news__details button,
   .news__details time {
     margin: 0;
+
     font-size: 14px;
     line-height: 18px;
   }
@@ -244,15 +245,17 @@
   }
 
   .news__details {
+    grid-template-rows: max-content 25px 50px 1fr;
+
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
-    grid-template-rows: max-content 25px 50px 1fr;
     margin-bottom: 10px;
   }
 
   .news__text p {
     margin-top: 0;
+
     font-size: 14px;
     line-height: 16px;
   }
