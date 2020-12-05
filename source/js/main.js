@@ -1,5 +1,6 @@
 import NewsFeed from "../js/presenter/feed";
 import {newsItems} from "./mocks";
+import NewsModel from "./model/news";
 
 export default class NewsWidget {
   constructor(config) {
@@ -8,6 +9,7 @@ export default class NewsWidget {
     this._newsBlock = document.querySelector(`#${container}`);
     this._type = type;
     this._source = source;
+    this._newsModel = new NewsModel();
 
     this._init();
   }
@@ -38,7 +40,8 @@ export default class NewsWidget {
         }
         response.json()
           .then((news) => {
-            this._renderPresenter(news);
+            this._newsModel.setNews(news);
+            this._renderPresenter();
           });
       })
       .catch((err) => {
@@ -47,11 +50,12 @@ export default class NewsWidget {
   }
 
   _startWithMocks(news) {
-    this._renderPresenter(news);
+    this._newsModel.setNews(news);
+    this._renderPresenter();
   }
 
-  _renderPresenter(news) {
-    const newsFeedPresenter = new NewsFeed(this._newsBlock, news);
+  _renderPresenter() {
+    const newsFeedPresenter = new NewsFeed(this._newsBlock, this._newsModel);
     newsFeedPresenter.init();
   }
 }
