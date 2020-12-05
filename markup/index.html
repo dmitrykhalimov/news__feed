@@ -7,6 +7,7 @@
     <link href="css/news-widget.css" rel="stylesheet">
   </head>
   <style>
+/* В отладочных целях стили контейнера (эмуляция настроек основного сайт) вынесена явно в style*/
 body {
   min-width: 320px;
   margin: 0;
@@ -96,6 +97,7 @@ body {
       </section>
     </div>
     <script>
+      /* В отладочных целях реализована простейшая логика*/
       var button = document.querySelector('button');
       button.addEventListener('click', () => {
         if (button.classList.contains('news__button--opened')) {

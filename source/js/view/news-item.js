@@ -1,5 +1,5 @@
 import Abstract from "./abstract";
-import {translateDateFromServer} from "../utils";
+import {translateDateFromServer} from "../utils/utils.js";
 
 const CLOSED__CLASS = `news__text--closed`;
 const createDescription = (text) => {

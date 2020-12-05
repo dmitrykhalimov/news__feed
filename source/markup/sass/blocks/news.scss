@@ -1,40 +1,42 @@
 .news__container {
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+
   font-family: inherit;
 }
 
 // основная кнопка
 .news__button {
   position: relative;
-  font-family: inherit;
+
   display: flex;
-
   width: 100%;
-
-  background-color: $news-widget-blue;
-  color: $news-widget-white;
-
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 40px;
 
+  font-family: inherit;
+  color: $news-widget-white;
+
+  background-color: $news-widget-blue;
   border: none;
   border-radius: 8px;
 }
 
 // новости
 .news__button span:first-child {
+  margin-right: 50px;
+
   font-weight: 700;
   font-size: 28px;
   line-height: 35px;
-  margin-right: 50px;
 }
 
 // статистика
 .news__button span:not(:last-child):not(:first-child) {
   align-self: center;
   padding-top: 0;
+
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
@@ -104,27 +106,29 @@
 
 .news__feed h3 {
   margin: 0;
+  margin-bottom: 10px;
+
   font-weight: bold;
   font-size: 22px;
   line-height: 28px;
   color: #0085ff;
-  margin-bottom: 10px;
 }
 
 .news__details {
   display: grid;
-  outline: 1px solid $news-widget-gray;
   grid-template-areas: "name status"
     "time time"
     "expand expand"
     "text text";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 25px 30px 50px 1fr;
+  margin-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 0;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 25px 30px 50px 1fr;
-  margin-bottom: 10px;
+
+  outline: 1px solid $news-widget-gray;
 }
 
 .news__details b,
@@ -132,27 +136,30 @@
 .news__details button,
 .news__details time {
   margin: 0;
+
   font-size: 17px;
   line-height: 20px;
 }
 
 .news__details time {
   grid-area: time;
+  margin: 0;
+
   font-weight: 400;
   font-style: italic;
-
-  margin: 0;
   font-size: 15px;
   line-height: 18px;
 }
 
 .news__details b {
   grid-area: name;
+
   font-weight: bold;
 }
 
 .news__details span {
   grid-area: status;
+
   font-weight: bold;
   text-align: right;
 }
@@ -161,17 +168,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: inherit;
-
   grid-area: expand;
-  font-weight: bold;
-
-  background-color: $news-widget-blue;
   width: 165px;
   height: 35px;
-  color: $news-widget-white;
+
+  background-color: $news-widget-blue;
   border-radius: 12px;
   border: none;
+
+  font-family: inherit;
+  font-weight: bold;
+  color: $news-widget-white;
 }
 
 .news__text {
@@ -184,6 +191,7 @@
 
 .news__text p {
   margin-top: 0;
+
   font-size: 15px;
   line-height: 18px;
 }
@@ -200,9 +208,10 @@
 
   // новости
   .news__button span:first-child {
+    margin-right: 15px;
+
     font-size: 22px;
     line-height: 26px;
-    margin-right: 15px;
   }
 
   // статистика
@@ -218,9 +227,10 @@
 
   .news__feed h3 {
     margin: 0;
+    margin-bottom: 10px;
+
     font-size: 18px;
     line-height: 22px;
-    margin-bottom: 10px;
   }
 
   .news__details b,
@@ -246,10 +256,10 @@
   .news__details {
     grid-template-rows: max-content 25px 50px 1fr;
 
+    margin-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
-    margin-bottom: 10px;
   }
 
   .news__text p {

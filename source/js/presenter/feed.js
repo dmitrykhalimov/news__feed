@@ -3,7 +3,7 @@ import MainButton from "../view/button";
 import NewsContainer from "../view/news-container";
 import NewsFeed from "../view/news-feed";
 import NewsItem from "../view/news-item";
-import {howManyReaded} from "../utils";
+import {howManyReaded} from "../utils/utils.js";
 
 export default class Feed {
   constructor(newsBlock, news) {
