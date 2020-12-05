@@ -1,6 +1,6 @@
 import {render, RenderPosition} from "../utils/render";
-import Button from "../view/button";
-import Container from "../view/news-container";
+import MainButton from "../view/button";
+import NewsContainer from "../view/news-container";
 import NewsFeed from "../view/news-feed";
 import NewsItem from "../view/news-item";
 import {howManyReaded} from "../utils";
@@ -8,16 +8,13 @@ import {howManyReaded} from "../utils";
 export default class Feed {
   constructor(newsBlock, news) {
     this._newsItems = news;
-
     this._isRendered = false;
-
     this._allQuantity = news.length;
     this._notReadQuantity = howManyReaded(news);
 
-    this._newsBlock = newsBlock;
-
-    this._newsContainerComponent = new Container();
-    this._buttonComponent = new Button(news.length, howManyReaded(news));
+    this._newsBlock = newsBlock; // блок куда рендерится виджет
+    this._newsContainerComponent = new NewsContainer(); // основной контейнер
+    this._buttonComponent = new MainButton(news.length, howManyReaded(news));
     this._newsFeedComponent = new NewsFeed();
 
     this._handleNewsButtonClick = this._handleNewsButtonClick.bind(this);
