@@ -22,7 +22,7 @@ gulp.task("css", function () {
     .pipe(sourcemap.init())
     .pipe(sass())
     .pipe(postcss([ autoprefixer() ]))
-    .pipe(rename("style.css"))
+    .pipe(rename("news-widget.css"))
     .pipe(sourcemap.write("."))
     .pipe(gulp.dest("markup/css"))
     .pipe(server.stream());
@@ -35,7 +35,7 @@ gulp.task("css-min", function () {
     .pipe(sass())
     .pipe(postcss([ autoprefixer() ]))
     .pipe(csso())
-    .pipe(rename("style.min.css"))
+    .pipe(rename("news-widget.min.css"))
     .pipe(sourcemap.write("."))
     .pipe(gulp.dest("markup/css"))
     .pipe(server.stream());

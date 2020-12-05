@@ -5,37 +5,11 @@
     <title>Шаблон кнопки</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/news-widget.css" rel="stylesheet">
   </head>
-  <style>
-    /* для базовой стилизации контейнера использован тег style, чтобы не подмешивать лишние стили в результирующие css файл*/
-    .news-server,
-    .news-mock {
-      width: 100%;
-      max-width: 800px;
-      margin-left: 200px;
-      margin-top: 50px;
-      outline: 4px solid green;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .news-mock {
-      outline: 4px solid blue;
-    }
-
-    @media (max-width: 767px) {
-      .news-server,
-      .news-mock {
-        width: 100%;
-        margin-left: 0;
-        padding: 0;
-      }
-    }
-  </style>
   <body>
     <div class="news-server" id="news-server"></div>
     <div class="news-mock" id="news-mock"></div>
-
     <script src="bundle.js"></script>
       <script>
         const newsWidgetServer = new NewsWidget({
