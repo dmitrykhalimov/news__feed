@@ -5,54 +5,53 @@
     <title>Шаблон кнопки</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="css/news-widget.css" rel="stylesheet">
+
+    <style>
+      /* В отладочных целях стили контейнера (эмуляция настроек основного сайт) вынесена явно в style*/
+      body {
+        min-width: 320px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .news {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 50px;
+        outline: 4px solid green;
+        font-family: "Rubik", "Arial", sans-serif;
+      }
+
+      @font-face {
+        font-family: "Rubik";
+        src:
+          url("../fonts/Rubik-Bold.woff2") format("woff2"),
+          url("../fonts/Rubik-Bold.woff") format("woff");
+        font-weight: 700;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Rubik";
+        src:
+          url("../../fonts/Rubik-Regular.woff2") format("woff2"),
+          url("../../fonts/Rubik-Regular.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Rubik";
+        src:
+          url("../../fonts/Rubik-Italic.woff2") format("woff2"),
+          url("../../fonts/Rubik-Italic.woff") format("woff");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+        </style>
   </head>
-  <style>
-/* В отладочных целях стили контейнера (эмуляция настроек основного сайт) вынесена явно в style*/
-body {
-  min-width: 320px;
-  margin: 0;
-  padding: 0;
-}
-
-.news {
-  box-sizing: border-box;
-  width: 100%;
-  /* margin-left: 200px; */
-  margin-top: 50px;
-  outline: 4px solid green;
-  font-family: "Rubik", "Arial", sans-serif;
-}
-
-@font-face {
-  font-family: "Rubik";
-  src:
-    url("../fonts/Rubik-Bold.woff2") format("woff2"),
-    url("../fonts/Rubik-Bold.woff") format("woff");
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Rubik";
-  src:
-    url("../../fonts/Rubik-Regular.woff2") format("woff2"),
-    url("../../fonts/Rubik-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Rubik";
-  src:
-    url("../../fonts/Rubik-Italic.woff2") format("woff2"),
-    url("../../fonts/Rubik-Italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-  </style>
   <body>
     <div class="news" id="news">
       <section class="news__container">

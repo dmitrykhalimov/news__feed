@@ -61,4 +61,3 @@ export default class NewsWidget {
 }
 
 window.NewsWidget = NewsWidget;
-

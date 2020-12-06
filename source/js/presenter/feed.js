@@ -61,4 +61,3 @@ export default class Feed {
     this._buttonComponent.changeReaded(this._notReadQuantity);
   }
 }
-
