@@ -7,7 +7,6 @@
 *.psd
 *.bak
 *.sublime*
-css/
 temp/
 node_modules/
 npm-debug.*
