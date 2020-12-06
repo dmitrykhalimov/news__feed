@@ -21,7 +21,7 @@ _`ES2015+`, `MVP`, `Fetch API`, `Webpack`, `БЭМ`, `Gulp`, `Sass`._
 
 * Запуск сервера верстки - `npm run markup-start` (порт `3000`)
 * Сборка верстки - `npm run markup-build` (сборка собирается в `/markup`)
-* Перенос style.css в папку `/build` - `npm run markup-copy`
+* Перенос news-widget.css в папку `/build` - `npm run markup-copy`
 
 * Запуск модуля - `npm run js-start`(используется папка `/build`, порт `3005`)
 * Сборка модуля - `npm run js-build` (сборка собирается в `/build` + копируется `news-widget.css` из `/markup`)
