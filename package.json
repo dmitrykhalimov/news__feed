@@ -1,5 +1,5 @@
 {
-  "name": "News Widget",
+  "name": "news_widget",
   "version": "1.0.0",
   "description": "Проект News-Widget",
   "devDependencies": {
