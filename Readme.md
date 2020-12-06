@@ -20,12 +20,12 @@ _`ES2015+`, `MVP`, `Fetch API`, `Webpack`, `БЭМ`, `Gulp`, `Sass`._
 #### Команды репозитория
 
 * Запуск сервера верстки - `npm run markup-start` (порт `3000`)
-* Сборка верстки - `npm run markup-build` (сборка собирается в `/markup`
+* Сборка верстки - `npm run markup-build` (сборка собирается в `/markup`)
 * Перенос style.css в папку `/build` - `npm run markup-copy`
 
 * Запуск модуля - `npm run js-start`(используется папка `/build`, порт `3005`)
-* Сборка модуля - `npm run js-build` (сборка собирается в `/build`, копируется `news-widget.css` из `/markup`)
-* Сборка модуля в режиме production - `npm run js-build-prod` (сборка собирается в `/build` копируется `news-widget.css` из `/markup`)
+* Сборка модуля - `npm run js-build` (сборка собирается в `/build` + копируется `news-widget.css` из `/markup`)
+* Сборка модуля в режиме production - `npm run js-build-prod` (сборка собирается в `/build` + копируется `news-widget.css` из `/markup`)
 
 * Запуск тестирования - `npm run test`
 
