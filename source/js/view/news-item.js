@@ -1,7 +1,7 @@
 import Abstract from "./abstract";
 import {translateDateFromServer} from "../utils/utils.js";
 
-const CLOSED__CLASS = `news__text--closed`;
+const CLOSED_CLASS = `news__text--closed`;
 const createDescription = (text) => {
   return text.reduce((acc, textItem) => {
     acc += `<p>${textItem}</p>`;
@@ -57,8 +57,8 @@ export default class NewsItem extends Abstract {
   }
 
   _buttonClickHandler() {
-    if (this._newsTextContainer.classList.contains(CLOSED__CLASS)) {
-      this._newsTextContainer.classList.remove(CLOSED__CLASS);
+    if (this._newsTextContainer.classList.contains(CLOSED_CLASS)) {
+      this._newsTextContainer.classList.remove(CLOSED_CLASS);
       this._buttonExpand.textContent = `Свернуть`;
 
       if (!this._isRead) {
@@ -69,7 +69,7 @@ export default class NewsItem extends Abstract {
       }
 
     } else {
-      this._newsTextContainer.classList.add(CLOSED__CLASS);
+      this._newsTextContainer.classList.add(CLOSED_CLASS);
       this._buttonExpand.textContent = `Читать далее`;
     }
   }

@@ -1,6 +1,6 @@
 import Abstract from "./abstract";
 
-const OPENED__CLASS = `news__button--opened`;
+const OPENED_CLASS = `news__button--opened`;
 const createTemplate = (allQuantity, notReadQuantity) => {
   return `<button class="news__button">
   <span>Новости</span>
@@ -21,7 +21,6 @@ export default class Button extends Abstract {
     this._clickHandler = this._clickHandler.bind(this);
 
     this._createTemplate = createTemplate(allQuantity, notReadQuantity);
-    // this._buttonShow = this.getElement().querySelector(`button`);
   }
 
   setClickHandler(callback) {
@@ -38,10 +37,10 @@ export default class Button extends Abstract {
     evt.preventDefault();
     this._callback.click();
 
-    if (!this.getElement().classList.contains(OPENED__CLASS)) {
-      this.getElement().classList.add(OPENED__CLASS);
+    if (!this.getElement().classList.contains(OPENED_CLASS)) {
+      this.getElement().classList.add(OPENED_CLASS);
     } else {
-      this.getElement().classList.remove(OPENED__CLASS);
+      this.getElement().classList.remove(OPENED_CLASS);
     }
   }
 }
