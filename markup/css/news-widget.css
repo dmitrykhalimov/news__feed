@@ -44,7 +44,10 @@
   color: #ffffff;
   background-color: #389af5;
   border: none;
-  border-radius: 8px; }
+  border-radius: 8px;
+  cursor: pointer; }
+  .news__button:hover {
+    opacity: 0.9; }
 
 .news__button span:first-child {
   margin-right: 50px;
@@ -176,7 +179,10 @@
   border: none;
   font-family: inherit;
   font-weight: bold;
-  color: #ffffff; }
+  color: #ffffff;
+  cursor: pointer; }
+  .news__details button:hover {
+    opacity: 0.9; }
 
 .news__text {
   grid-area: text; }

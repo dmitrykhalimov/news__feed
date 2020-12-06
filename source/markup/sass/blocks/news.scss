@@ -21,6 +21,12 @@
   background-color: $news-widget-blue;
   border: none;
   border-radius: 8px;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 // новости
@@ -179,6 +185,12 @@
   font-family: inherit;
   font-weight: bold;
   color: $news-widget-white;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .news__text {
