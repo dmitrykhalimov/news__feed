@@ -19,6 +19,7 @@ _`ES2015+`, `MVP`, `Fetch API`, `Webpack`, `БЭМ`, `Gulp`, `Sass`._
 
 #### Команды репозитория
 
+* Установка зависимостей - `npm i` 
 * Запуск сервера верстки - `npm run markup-start` (порт `3000`)
 * Сборка верстки - `npm run markup-build` (сборка собирается в `/markup`)
 * Перенос news-widget.css в папку `/build` - `npm run markup-copy`
