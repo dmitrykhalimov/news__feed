@@ -24,7 +24,7 @@ export default class NewsWidget {
         this._startFromServer();
         break;
       case `mocks`:
-        this._startWithMocks(newsItems);
+        this._startWithMocks();
         break;
       default:
         throw new Error(`Некорректно указан тип работы`);
@@ -49,8 +49,8 @@ export default class NewsWidget {
       });
   }
 
-  _startWithMocks(news) {
-    this._newsModel.setNews(news);
+  _startWithMocks() {
+    this._newsModel.setNews(newsItems);
     this._renderPresenter();
   }
 

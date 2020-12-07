@@ -21,6 +21,11 @@ export default class Feed {
     this._handleReadNewsClick = this._handleReadNewsClick.bind(this);
   }
 
+  init() {
+    this._renderContainer();
+    this._renderButton();
+  }
+
   _renderContainer() {
     render(this._newsBlock, this._newsContainerComponent.getElement(), RenderPosition.AFTERBEGIN);
   }
@@ -39,11 +44,6 @@ export default class Feed {
 
 
     render(this._newsContainerComponent.getElement(), this._newsFeedComponent.getElement(), RenderPosition.BEFOREEND);
-  }
-
-  init() {
-    this._renderContainer();
-    this._renderButton();
   }
 
   _handleNewsButtonClick() {
